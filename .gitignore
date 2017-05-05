@@ -1,0 +1,11 @@
+.auth
+*.swp
+*.pyc
+.tox/
+*~
+*.orig
+*.log
+venv/
+build/
+htmlcov/
+app.properties
