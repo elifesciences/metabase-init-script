@@ -24,7 +24,6 @@ def props(path):
 def subdict(d, ks):
     return {k: v for k, v in d.items() if k in ks}
 
-
 def load_session_id():
     if os.path.exists(AUTHFILE):
         LOG.debug(AUTHFILE + " file found")
@@ -79,8 +78,8 @@ dbdata = dbdata[dbname]
 
 kwargs = subdict(dbdata, ['id', 'name', 'engine', 'details', 'is_full_sync', 'description', 'caveats', 'points_of_interest'])
 kwargs['details']['host'] = cfg['dbhost']
-
 #pprint(kwargs)
+
 resp = metabase.put("/database/%s" % kwargs['id'], json=kwargs)
 
 if not resp:
