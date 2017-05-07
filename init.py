@@ -13,6 +13,7 @@ logging.getLogger('').setLevel(logging.DEBUG)
 LOG = logging.getLogger(__name__)
 LOG.setLevel(logging.DEBUG)
 AUTHFILE = '.auth'
+PROPSFILE = 'app.properties'
 
 def props(path):
     with open(path, 'r') as f:
@@ -51,7 +52,9 @@ def rename(d, kv_list):
 #
 #
 
-cfg = props("app.properties")
+assert os.path.exists(PROPSFILE), "couldn't find properties file %r" % PROPSFILE
+
+cfg = props(PROPSFILE)
 kwargs = subdict(cfg, ['endpoint', 'email', 'password'])
 kwargs['session'] = load_session_id() # pass in session ID if we have one
 kwargs['auth_callback'] = write_session_id # write session ID to AUTHFILE on successful authentication
