@@ -1,5 +1,5 @@
 appdirs==1.4.3
--e git+https://github.com/elifesciences/metabase-py@97fb2cebef44fea45ca9dd06ae337c1725d5d6c1#egg=metabase
+git+https://github.com/elifesciences/metabase-py@97fb2cebef44fea45ca9dd06ae337c1725d5d6c1#egg=metabase
 packaging==16.8
 pyparsing==2.2.0
 requests==2.13.0
