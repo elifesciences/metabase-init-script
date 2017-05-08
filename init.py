@@ -31,6 +31,7 @@ def load_session_id():
         return open(AUTHFILE, 'r').read()
 
 def write_session_id(mbase):
+    assert mbase.session, "cannot write session id to file - no session id exists!"
     with open('.auth', 'w') as fh:
         fh.write(mbase.session)
 
